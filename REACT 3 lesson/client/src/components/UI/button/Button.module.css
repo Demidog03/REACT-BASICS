@@ -1,0 +1,24 @@
+.button{
+    border: none;
+    background-color: grey;
+    padding: 10px 15px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/*types*/
+.round{
+    border-radius: 30px;
+    padding: 15px 80px;
+}
+
+.big{
+    padding: 15px 101px;
+}
+
+.small{
+    padding: 10px 71px;
+}
+
