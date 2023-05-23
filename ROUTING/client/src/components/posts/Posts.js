@@ -2,13 +2,15 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import PostItem from "../postItem/PostItem";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import Header from "../Header";
+import {ThemeContext} from "../../App";
+
 
 export default function Posts() {
     const [posts, setPosts] = useState([])
-
+    const isAuth = useContext(ThemeContext)
     useEffect( () => {
         getPosts()
     }, [])
@@ -31,14 +33,25 @@ export default function Posts() {
                 />
     })
 
-    return (
-        <>
-            <Header/>
-            <Box sx={{ flexGrow: 1}} >
-                <Grid container spacing={2}>
-                    {postItems}
-                </Grid>
-            </Box>
-        </>
-    );
+    if(isAuth){
+        return (
+            <>
+                <Header/>
+                <Box sx={{ flexGrow: 1}} >
+                    <Grid container spacing={2}>
+                        {postItems}
+                    </Grid>
+                </Box>
+            </>
+        );
+    }
+    else{
+        return (
+            <>
+                <Header/>
+                <h2>Please login</h2>
+            </>
+        )
+    }
+
 }

@@ -1,12 +1,12 @@
-import React from 'react';
+import {useContext} from 'react';
 import Grid from "@mui/material/Grid";
 import {styled} from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import TagItem from "../tagItem/TagItem";
 import {Stack} from "@mui/material";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import {ThemeContext} from "../../App";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -20,6 +20,9 @@ const Item = styled(Paper)(({ theme }) => ({
 function PostItem({title, body, reactions, tags, id}) {
     const navigate = useNavigate()
 
+    const isAuth = useContext(ThemeContext)
+
+
     const tagItems = tags.map((tag) => {
         return <TagItem>{tag}</TagItem>
     })
@@ -29,7 +32,7 @@ function PostItem({title, body, reactions, tags, id}) {
     }
 
     return (
-        <Grid onClick={openPost} item xs={6} md={8}>
+        <Grid item xs={6} md={8} style={{cursor: 'pointer'}} onClick={openPost} >
             <Item>
                 <div>
                     <h2>{title}</h2>
