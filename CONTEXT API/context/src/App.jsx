@@ -6,7 +6,7 @@ import PostContextProvider, {PostContext} from "./providers/PostContextProvider.
 
 // function App() {
 //     /*GLOBAL STATES*/
-//     /*REDUX, REDUX TOOLKIT*/
+//     /*TEST, TEST TOOLKIT*/
 //     /*React Context API*/
 //     const [username, setUsername] = useState("Olzhas")
 //
